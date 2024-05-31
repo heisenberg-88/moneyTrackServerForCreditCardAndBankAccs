@@ -1,0 +1,10 @@
+[Unit]
+Description= moneyServer I2c OLED stats Service
+
+[Service]
+ExecStart=/usr/bin/python3 /home/parth/serverUtilsForMoneyServer/moneyServerOledStats.py
+Restart=always
+RestartSec=5s
+                                                                                                                                                             
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,94 @@
+package com.parth.money.moneyserverapp.Adapter;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.parth.money.moneyserverapp.Model.SummaryModel;
+import com.parth.money.moneyserverapp.R;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+
+
+public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
+
+    private ArrayList<SummaryModel> dataSet;
+    Context mContext;
+
+
+    private static class ViewHolder {
+        TextView t1;
+        TextView t2;
+        TextView t3;
+        TextView t4;
+        TextView t5;
+        TextView t6;
+        TextView t7;
+    }
+
+    public CustomAdapterForSummary(ArrayList<SummaryModel> data, Context context) {
+        super(context, R.layout.card_view_summary, data);
+        this.dataSet = data;
+        this.mContext=context;
+
+    }
+
+
+
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        SummaryModel summaryModel = getItem(position);
+        ViewHolder viewHolder;
+
+        final View result;
+
+        if (convertView == null) {
+
+            viewHolder = new ViewHolder();
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            convertView = inflater.inflate(R.layout.card_view_summary, parent, false);
+            viewHolder.t1 = (TextView) convertView.findViewById(R.id.SummaryTextView1);
+            viewHolder.t2 = (TextView) convertView.findViewById(R.id.SummaryTextView2);
+            viewHolder.t3 = (TextView) convertView.findViewById(R.id.SummaryTextView3);
+            viewHolder.t4 = (TextView) convertView.findViewById(R.id.SummaryTextView4);
+            viewHolder.t5 = (TextView) convertView.findViewById(R.id.SummaryTextView5);
+            viewHolder.t6 = (TextView) convertView.findViewById(R.id.SummaryTextView6);
+            viewHolder.t7 = (TextView) convertView.findViewById(R.id.SummaryTextView7);
+
+            result = convertView;
+
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (CustomAdapterForSummary.ViewHolder) convertView.getTag();
+            result=convertView;
+        }
+
+        String DataMonthandyear = summaryModel.getMonth() +"-"+summaryModel.getYear();
+        BigDecimal Standard_Chartered_Ultimate_Total = summaryModel.getStandard_Chartered_Ultimate_Total();
+        BigDecimal HDFC_Regalia_Gold_Total = summaryModel.getHdfc_Regalia_Gold_Total();
+        BigDecimal AmazonPay_icici_Total = summaryModel.getAmazonPay_icici_Total();
+        BigDecimal Amazon_PayLater_Total = summaryModel.getAmazon_PayLater_Total();
+        BigDecimal Flipkart_PayLater_Total = summaryModel.getFlipkart_PayLater_Total();
+        BigDecimal Amount_Total = summaryModel.getAmount_Total();
+
+        viewHolder.t1.setText(DataMonthandyear);
+        viewHolder.t2.setText("Standard Chartered Ultimate MasterCard-WORLD : ₹"+ Standard_Chartered_Ultimate_Total.toString());
+        viewHolder.t3.setText("HDFC Regalia Gold MasterCard-WORLD : ₹"+HDFC_Regalia_Gold_Total.toString());
+        viewHolder.t4.setText("AmazonPay ICICI Visa : ₹"+AmazonPay_icici_Total.toString());
+        viewHolder.t5.setText("AmazonPayLater OLD-CLOSED : ₹"+Amazon_PayLater_Total.toString());
+        viewHolder.t6.setText("FlipkartPayLater OLD-CLOSED : ₹"+Flipkart_PayLater_Total.toString());
+        viewHolder.t7.setText("Amount_Total : ₹"+Amount_Total.toString());
+
+
+        return convertView;
+    }
+}

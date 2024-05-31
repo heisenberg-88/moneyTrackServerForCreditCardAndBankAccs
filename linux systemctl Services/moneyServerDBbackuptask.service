@@ -1,0 +1,5 @@
+[Unit]
+Description=moneyServerDBbackupTask
+
+[Service]
+ExecStart=bash /home/parth/serverUtilsForMoneyServer/moneyServerBKP.sh

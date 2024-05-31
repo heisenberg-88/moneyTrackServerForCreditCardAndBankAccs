@@ -1,0 +1,127 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/bankTitalnewTxn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a new transaction"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@color/dividerColor"
+        android:padding="8dp"/>
+
+    <EditText
+        android:id="@+id/banktxnDatefield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bankTitalnewTxn"
+        android:hint="txnDate"
+        android:padding="8dp"/>
+
+    <Spinner
+        android:id="@+id/bankmonthSpinner"
+        android:layout_below="@id/banktxnDatefield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <Spinner
+        android:id="@+id/bankyearSpinner"
+        android:layout_below="@id/bankmonthSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <Spinner
+        android:id="@+id/bankAccNameSpinner"
+        android:layout_below="@id/bankyearSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <EditText
+        android:id="@+id/banktxnDetailsField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bankAccNameSpinner"
+        android:hint="txnDetails"
+        android:padding="8dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/inOutTxnCheckboxLayout"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_below="@id/banktxnDetailsField"
+        android:gravity="center" >
+
+        <CheckBox
+            android:id="@+id/incomingCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Income"
+            android:padding="8dp"/>
+
+        <CheckBox
+            android:id="@+id/outgoingCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Expense"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/banktxnAmountField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inOutTxnCheckboxLayout"
+        android:hint="txnAmount"
+        android:padding="8dp"/>
+
+    <EditText
+        android:id="@+id/bankTxnSeqNofield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/banktxnAmountField"
+        android:hint="txnSequenceNo"
+        android:padding="8dp"/>
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_below="@id/bankTxnSeqNofield"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/bankPOSTtxnbtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="POST"
+            android:layout_marginStart="7dp"/>
+
+        <Button
+            android:id="@+id/bankCANCELtxnbtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="EXIT"
+            android:layout_marginStart="7dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
