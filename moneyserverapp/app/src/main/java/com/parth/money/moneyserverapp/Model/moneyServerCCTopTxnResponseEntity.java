@@ -10,6 +10,9 @@ public class moneyServerCCTopTxnResponseEntity {
 
     private BigDecimal txnAmount;
 
+    private String ccorbank;
+
+
     public String getTxnId() {
         return txnId;
     }
@@ -32,5 +35,13 @@ public class moneyServerCCTopTxnResponseEntity {
 
     public void setTxnAmount(BigDecimal txnAmount) {
         this.txnAmount = txnAmount;
+    }
+
+    public String getCcorbank() {
+        return ccorbank;
+    }
+
+    public void setCcorbank(String ccorbank) {
+        this.ccorbank = ccorbank;
     }
 }

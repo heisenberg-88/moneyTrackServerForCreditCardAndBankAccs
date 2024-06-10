@@ -114,6 +114,7 @@ public class BankTxndetailsMainController {
         topTxnEntity.setTxnId(returnEntity.getBanktxnId());
         topTxnEntity.setTxnDetails(returnEntity.getBanktxnDetails());
         topTxnEntity.setTxnAmount(returnEntity.getBanktxnAmount().negate());
+        topTxnEntity.setCcorbank("B");
         creditCardTopTxnDetailsMainRepository.save(topTxnEntity);
 
         String bankAccName = "avlBal-HDFC";

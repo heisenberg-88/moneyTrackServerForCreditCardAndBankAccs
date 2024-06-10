@@ -69,6 +69,12 @@ public class CustomAdapterForTopTxns extends ArrayAdapter<moneyServerCCTopTxnRes
         viewHolder.t1.setText(DataTxnDetails);
         viewHolder.t2.setText(DataTxnAmt.toString());
 
+        if("C".equalsIgnoreCase(moneyServerCCTopTxnResponseEntityobj.getCcorbank())){
+            convertView.setBackgroundColor(Color.parseColor("#B8FFB3"));
+        }else{
+            convertView.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        }
+
         return convertView;
     }
 

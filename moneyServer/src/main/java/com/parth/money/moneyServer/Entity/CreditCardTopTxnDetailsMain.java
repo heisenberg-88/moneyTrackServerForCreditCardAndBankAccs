@@ -22,6 +22,9 @@ public class CreditCardTopTxnDetailsMain implements Serializable {
     @Column(name="txn_amount")
     private BigDecimal txnAmount;
 
+    @Column(name="ccorbank")
+    private String ccorbank;
+
     public String getTxnId() {
         return txnId;
     }
@@ -46,5 +49,11 @@ public class CreditCardTopTxnDetailsMain implements Serializable {
         this.txnAmount = txnAmount;
     }
 
+    public String getCcorbank() {
+        return ccorbank;
+    }
 
+    public void setCcorbank(String ccorbank) {
+        this.ccorbank = ccorbank;
+    }
 }

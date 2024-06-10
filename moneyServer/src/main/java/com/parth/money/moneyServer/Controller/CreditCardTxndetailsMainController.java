@@ -125,6 +125,7 @@ public class CreditCardTxndetailsMainController {
         topTxnEntity.setTxnId(returnEntity.getTxnId());
         topTxnEntity.setTxnDetails(returnEntity.getTxnDetails());
         topTxnEntity.setTxnAmount(returnEntity.getTxnAmount());
+        topTxnEntity.setCcorbank("C");
         creditCardTopTxnDetailsMainRepository.save(topTxnEntity);
 
         return returnEntity;
@@ -188,6 +189,7 @@ public class CreditCardTxndetailsMainController {
         topTxnEntity.setTxnId(returnList.get(0).getTxnEmiId());
         topTxnEntity.setTxnDetails(returnList.get(0).getTxnDetails());
         topTxnEntity.setTxnAmount(returnList.get(0).getTxnAmount().multiply(noOfEmisBIGDECIMAL));
+        topTxnEntity.setCcorbank("C");
         creditCardTopTxnDetailsMainRepository.save(topTxnEntity);
 
         return returnList;
