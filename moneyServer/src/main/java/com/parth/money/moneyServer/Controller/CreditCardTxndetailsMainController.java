@@ -99,8 +99,21 @@ public class CreditCardTxndetailsMainController {
         if(entity.getTxnIsEmi()){
             entity.setTxnIsEmi(false);
         }
-        String currDBlastusedYear = moneyServerPropertiesDataRepository.findById("lastUsedyear").getValue();
-        String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById("lastUsedmonth").getValue();
+        String typeOfCard = null;
+        if(entity.getTxnCCused().startsWith("AmazonPay")){
+            typeOfCard = "AMZNPAYICICI";
+        }
+        if(entity.getTxnCCused().startsWith("HDFC")){
+            typeOfCard = "REGALIAGOLD";
+        }
+        if(entity.getTxnCCused().startsWith("Standard")){
+            typeOfCard = "STANDCHARTULTIMATE";
+        }
+        String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
+        String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
+
+        String stopperEMIMonthinDB = moneyServerPropertiesDataRepository.findById("emilastUsedmonth").getValue();
+        String stopperEMIYearinDB = moneyServerPropertiesDataRepository.findById("emilastUsedyear").getValue();
 
         if(entity.getTxnBillingYearINTEGER()==Integer.parseInt(currDBlastusedYear)){
             if((entity.getTxnBillingMonthINTEGER()-1)<months.indexOf(currDBlastusedMonth)){
@@ -112,14 +125,31 @@ public class CreditCardTxndetailsMainController {
         Query query = entityManager.createNamedQuery("MoneyServerPropertiesData.updateLastUsedMonthYear");
         if(!currDBlastusedMonth.equalsIgnoreCase(entity.getTxnBillingMonth())){
             query.setParameter("newData",entity.getTxnBillingMonth());
-            query.setParameter("id","lastUsedmonth");
+            query.setParameter("id",typeOfCard+"lastUsedmonth");
             query.executeUpdate();
         }
         if(!currDBlastusedYear.equalsIgnoreCase(entity.getTxnBillingYear())){
             query.setParameter("newData",entity.getTxnBillingYear());
-            query.setParameter("id","lastUsedyear");
+            query.setParameter("id",typeOfCard+"lastUsedyear");
             query.executeUpdate();
         }
+
+        if(entity.getTxnBillingYearINTEGER()>Integer.parseInt(stopperEMIYearinDB)){
+            query.setParameter("newData",entity.getTxnBillingMonth());
+            query.setParameter("id","emilastUsedmonth");
+            query.executeUpdate();
+
+            query.setParameter("newData",entity.getTxnBillingYear());
+            query.setParameter("id","emilastUsedyear");
+            query.executeUpdate();
+        }else if (entity.getTxnBillingYearINTEGER()==Integer.parseInt(stopperEMIYearinDB)){
+            if((entity.getTxnBillingMonthINTEGER()-1)>months.indexOf(stopperEMIMonthinDB)){
+                query.setParameter("newData",entity.getTxnBillingMonth());
+                query.setParameter("id","emilastUsedmonth");
+                query.executeUpdate();
+            }
+        }
+
         CreditCardTxnDetailsMain returnEntity =  creditCardTxnDetailsMainRepository.save(entity);
         CreditCardTopTxnDetailsMain topTxnEntity = new CreditCardTopTxnDetailsMain();
         topTxnEntity.setTxnId(returnEntity.getTxnId());
@@ -137,8 +167,18 @@ public class CreditCardTxndetailsMainController {
         if(!entity.getTxnIsEmi()){
             entity.setTxnIsEmi(true);
         }
-        String currDBlastusedYear = moneyServerPropertiesDataRepository.findById("lastUsedyear").getValue();
-        String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById("lastUsedmonth").getValue();
+        String typeOfCard = null;
+        if(entity.getTxnCCused().startsWith("AmazonPay")){
+            typeOfCard = "AMZNPAYICICI";
+        }
+        if(entity.getTxnCCused().startsWith("HDFC")){
+            typeOfCard = "REGALIAGOLD";
+        }
+        if(entity.getTxnCCused().startsWith("Standard")){
+            typeOfCard = "STANDCHARTULTIMATE";
+        }
+        String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
+        String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
 
         String stopperEMIMonthinDB = moneyServerPropertiesDataRepository.findById("emilastUsedmonth").getValue();
         String stopperEMIYearinDB = moneyServerPropertiesDataRepository.findById("emilastUsedyear").getValue();
@@ -157,14 +197,14 @@ public class CreditCardTxndetailsMainController {
         List<CreditCardTxnDetailsMain> returnList = ccEmiUtility.addEmitxnsUtil(entity,noOfEMIs);
 
         Query query = entityManager.createNamedQuery("MoneyServerPropertiesData.updateLastUsedMonthYear");
-        if(!currDBlastusedMonth.equalsIgnoreCase(entity.getTxnBillingMonth())){
+        if(!currDBlastusedMonth.equalsIgnoreCase(monthNewDB)){
             query.setParameter("newData",monthNewDB);
-            query.setParameter("id","lastUsedmonth");
+            query.setParameter("id",typeOfCard+"lastUsedmonth");
             query.executeUpdate();
         }
-        if(!currDBlastusedYear.equalsIgnoreCase(entity.getTxnBillingYear())){
+        if(!currDBlastusedYear.equalsIgnoreCase(yearNewDB)){
             query.setParameter("newData",yearNewDB);
-            query.setParameter("id","lastUsedyear");
+            query.setParameter("id",typeOfCard+"lastUsedyear");
             query.executeUpdate();
         }
 
@@ -201,8 +241,18 @@ public class CreditCardTxndetailsMainController {
     @DeleteMapping("/txn/txnDeleteNormal/{id}")
     public String txnDeleteNormal(@PathVariable String id){
         CreditCardTxnDetailsMain responseFromID = creditCardTxnDetailsMainRepository.findByTxnId(id);
-        String currDBlastusedYear = moneyServerPropertiesDataRepository.findById("lastUsedyear").getValue();
-        String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById("lastUsedmonth").getValue();
+        String typeOfCard = null;
+        if(responseFromID.getTxnCCused().startsWith("AmazonPay")){
+            typeOfCard = "AMZNPAYICICI";
+        }
+        if(responseFromID.getTxnCCused().startsWith("HDFC")){
+            typeOfCard = "REGALIAGOLD";
+        }
+        if(responseFromID.getTxnCCused().startsWith("Standard")){
+            typeOfCard = "STANDCHARTULTIMATE";
+        }
+        String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
+        String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
         if(responseFromID.getTxnBillingYearINTEGER()!=Integer.parseInt(currDBlastusedYear)){
             return "DELETE_ERROR";
         }else{
@@ -219,8 +269,18 @@ public class CreditCardTxndetailsMainController {
     @DeleteMapping("/txn/txnDeleteEmi/{id}")
     public String txnDeleteEmi(@PathVariable String id){
         CreditCardTxnDetailsMain responseFromID = creditCardTxnDetailsMainRepository.findByTxnId(id);
-        String currDBlastusedYear = moneyServerPropertiesDataRepository.findById("lastUsedyear").getValue();
-        String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById("lastUsedmonth").getValue();
+        String typeOfCard = null;
+        if(responseFromID.getTxnCCused().startsWith("AmazonPay")){
+            typeOfCard = "AMZNPAYICICI";
+        }
+        if(responseFromID.getTxnCCused().startsWith("HDFC")){
+            typeOfCard = "REGALIAGOLD";
+        }
+        if(responseFromID.getTxnCCused().startsWith("Standard")){
+            typeOfCard = "STANDCHARTULTIMATE";
+        }
+        String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
+        String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
         if(responseFromID.getTxnBillingYearINTEGER()!=Integer.parseInt(currDBlastusedYear)){
             return "DELETE_ERROR";
         }else{
