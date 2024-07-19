@@ -28,6 +28,8 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         TextView t2;
         TextView t3;
         TextView t4;
+        TextView t8;
+        TextView t9;
         TextView t5;
         TextView t6;
         TextView t7;
@@ -60,6 +62,8 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
             viewHolder.t2 = (TextView) convertView.findViewById(R.id.SummaryTextView2);
             viewHolder.t3 = (TextView) convertView.findViewById(R.id.SummaryTextView3);
             viewHolder.t4 = (TextView) convertView.findViewById(R.id.SummaryTextView4);
+            viewHolder.t8 = (TextView) convertView.findViewById(R.id.SummaryTextView8);
+            viewHolder.t9 = (TextView) convertView.findViewById(R.id.SummaryTextView9);
             viewHolder.t5 = (TextView) convertView.findViewById(R.id.SummaryTextView5);
             viewHolder.t6 = (TextView) convertView.findViewById(R.id.SummaryTextView6);
             viewHolder.t7 = (TextView) convertView.findViewById(R.id.SummaryTextView7);
@@ -76,6 +80,8 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         BigDecimal Standard_Chartered_Ultimate_Total = summaryModel.getStandard_Chartered_Ultimate_Total();
         BigDecimal HDFC_Regalia_Gold_Total = summaryModel.getHdfc_Regalia_Gold_Total();
         BigDecimal AmazonPay_icici_Total = summaryModel.getAmazonPay_icici_Total();
+        BigDecimal HSBC_Visa_Platinum_Total = summaryModel.getHsbc_Visa_Platinum();
+        BigDecimal OneCard_Metal_Total = summaryModel.getOneCard_Metal();
         BigDecimal Amazon_PayLater_Total = summaryModel.getAmazon_PayLater_Total();
         BigDecimal Flipkart_PayLater_Total = summaryModel.getFlipkart_PayLater_Total();
         BigDecimal Amount_Total = summaryModel.getAmount_Total();
@@ -87,6 +93,8 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         viewHolder.t5.setText("AmazonPayLater OLD-CLOSED : ₹"+Amazon_PayLater_Total.toString());
         viewHolder.t6.setText("FlipkartPayLater OLD-CLOSED : ₹"+Flipkart_PayLater_Total.toString());
         viewHolder.t7.setText("Amount_Total : ₹"+Amount_Total.toString());
+        viewHolder.t8.setText("HSBC PLATINUM Visa : ₹"+HSBC_Visa_Platinum_Total.toString());
+        viewHolder.t9.setText("ONECard METAL Visa : ₹"+OneCard_Metal_Total.toString());
 
 
         return convertView;

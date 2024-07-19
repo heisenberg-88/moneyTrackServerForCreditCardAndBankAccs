@@ -57,6 +57,8 @@ public class SummaryUtility {
         BigDecimal scu = new BigDecimal(0);
         BigDecimal hdfcrg = new BigDecimal(0);
         BigDecimal amznicici = new BigDecimal(0);
+        BigDecimal hsbcvisaplat = new BigDecimal(0);
+        BigDecimal onecardmetal = new BigDecimal(0);
         BigDecimal amznpl = new BigDecimal(0);
         BigDecimal flpkrtpl = new BigDecimal(0);
         BigDecimal totalAmt = new BigDecimal(0);
@@ -88,6 +90,12 @@ public class SummaryUtility {
             if(txn.getTxnCCused().startsWith("FlipkartPayLater")){
                 flpkrtpl = flpkrtpl.add(txn.getTxnAmount());
             }
+            if(txn.getTxnCCused().startsWith("HSBC PLATINUM")){
+                hsbcvisaplat = hsbcvisaplat.add(txn.getTxnAmount());
+            }
+            if(txn.getTxnCCused().startsWith("ONECard METAL")){
+                onecardmetal = onecardmetal.add(txn.getTxnAmount());
+            }
         }
 
         totalAmt = totalAmt.add(scu);
@@ -95,12 +103,16 @@ public class SummaryUtility {
         totalAmt = totalAmt.add(amznicici);
         totalAmt = totalAmt.add(amznpl);
         totalAmt = totalAmt.add(flpkrtpl);
+        totalAmt = totalAmt.add(hsbcvisaplat);
+        totalAmt = totalAmt.add(onecardmetal);
 
         returnModel.setStandard_Chartered_Ultimate_Total(scu);
         returnModel.setHDFC_Regalia_Gold_Total(hdfcrg);
         returnModel.setAmazonPay_icici_Total(amznicici);
         returnModel.setAmazon_PayLater_Total(amznpl);
         returnModel.setFlipkart_PayLater_Total(flpkrtpl);
+        returnModel.setHSBC_Visa_Platinum(hsbcvisaplat);
+        returnModel.setOneCard_Metal(onecardmetal);
         returnModel.setAmount_Total(totalAmt);
 
         return returnModel;

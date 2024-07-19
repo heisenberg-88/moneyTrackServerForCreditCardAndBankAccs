@@ -8,6 +8,8 @@ public class SummaryModel {
     private BigDecimal standard_Chartered_Ultimate_Total;
     private BigDecimal hdfc_Regalia_Gold_Total;
     private BigDecimal amazonPay_icici_Total;
+    private BigDecimal hsbc_Visa_Platinum;
+    private BigDecimal oneCard_Metal;
     private BigDecimal amazon_PayLater_Total;
     private BigDecimal flipkart_PayLater_Total;
     private BigDecimal amount_Total;
@@ -74,5 +76,21 @@ public class SummaryModel {
 
     public void setYear(String year) {
         this.year = year;
+    }
+
+    public BigDecimal getHsbc_Visa_Platinum() {
+        return hsbc_Visa_Platinum;
+    }
+
+    public void setHsbc_Visa_Platinum(BigDecimal hsbc_Visa_Platinum) {
+        this.hsbc_Visa_Platinum = hsbc_Visa_Platinum;
+    }
+
+    public BigDecimal getOneCard_Metal() {
+        return oneCard_Metal;
+    }
+
+    public void setOneCard_Metal(BigDecimal oneCard_Metal) {
+        this.oneCard_Metal = oneCard_Metal;
     }
 }

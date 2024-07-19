@@ -109,6 +109,12 @@ public class CreditCardTxndetailsMainController {
         if(entity.getTxnCCused().startsWith("Standard")){
             typeOfCard = "STANDCHARTULTIMATE";
         }
+        if(entity.getTxnCCused().startsWith("HSBC")){
+            typeOfCard = "HSBCVISAPLAT";
+        }
+        if(entity.getTxnCCused().startsWith("ONECard")){
+            typeOfCard = "ONECARDMETAL";
+        }
         String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
         String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
 
@@ -176,6 +182,12 @@ public class CreditCardTxndetailsMainController {
         }
         if(entity.getTxnCCused().startsWith("Standard")){
             typeOfCard = "STANDCHARTULTIMATE";
+        }
+        if(entity.getTxnCCused().startsWith("HSBC")){
+            typeOfCard = "HSBCVISAPLAT";
+        }
+        if(entity.getTxnCCused().startsWith("ONECard")){
+            typeOfCard = "ONECARDMETAL";
         }
         String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
         String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
@@ -251,6 +263,12 @@ public class CreditCardTxndetailsMainController {
         if(responseFromID.getTxnCCused().startsWith("Standard")){
             typeOfCard = "STANDCHARTULTIMATE";
         }
+        if(responseFromID.getTxnCCused().startsWith("HSBC")){
+            typeOfCard = "HSBCVISAPLAT";
+        }
+        if(responseFromID.getTxnCCused().startsWith("ONECard")){
+            typeOfCard = "ONECARDMETAL";
+        }
         String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
         String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
         if(responseFromID.getTxnBillingYearINTEGER()!=Integer.parseInt(currDBlastusedYear)){
@@ -278,6 +296,12 @@ public class CreditCardTxndetailsMainController {
         }
         if(responseFromID.getTxnCCused().startsWith("Standard")){
             typeOfCard = "STANDCHARTULTIMATE";
+        }
+        if(responseFromID.getTxnCCused().startsWith("HSBC")){
+            typeOfCard = "HSBCVISAPLAT";
+        }
+        if(responseFromID.getTxnCCused().startsWith("ONECard")){
+            typeOfCard = "ONECARDMETAL";
         }
         String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
         String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
