@@ -115,6 +115,9 @@ public class CreditCardTxndetailsMainController {
         if(entity.getTxnCCused().startsWith("ONECard")){
             typeOfCard = "ONECARDMETAL";
         }
+        if(entity.getTxnCCused().startsWith("Swiggy")){
+            typeOfCard = "SWIGGYHDFC";
+        }
         String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
         String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
 
@@ -188,6 +191,9 @@ public class CreditCardTxndetailsMainController {
         }
         if(entity.getTxnCCused().startsWith("ONECard")){
             typeOfCard = "ONECARDMETAL";
+        }
+        if(entity.getTxnCCused().startsWith("Swiggy")){
+            typeOfCard = "SWIGGYHDFC";
         }
         String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
         String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
@@ -269,6 +275,9 @@ public class CreditCardTxndetailsMainController {
         if(responseFromID.getTxnCCused().startsWith("ONECard")){
             typeOfCard = "ONECARDMETAL";
         }
+        if(responseFromID.getTxnCCused().startsWith("Swiggy")){
+            typeOfCard = "SWIGGYHDFC";
+        }
         String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
         String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
         if(responseFromID.getTxnBillingYearINTEGER()!=Integer.parseInt(currDBlastusedYear)){
@@ -302,6 +311,9 @@ public class CreditCardTxndetailsMainController {
         }
         if(responseFromID.getTxnCCused().startsWith("ONECard")){
             typeOfCard = "ONECARDMETAL";
+        }
+        if(responseFromID.getTxnCCused().startsWith("Swiggy")){
+            typeOfCard = "SWIGGYHDFC";
         }
         String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
         String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();

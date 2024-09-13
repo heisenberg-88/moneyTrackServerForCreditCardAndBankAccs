@@ -10,6 +10,7 @@ public class SummaryModel {
     private BigDecimal amazonPay_icici_Total;
     private BigDecimal hsbc_Visa_Platinum;
     private BigDecimal oneCard_Metal;
+    private BigDecimal swiggy_HDFC;
     private BigDecimal amazon_PayLater_Total;
     private BigDecimal flipkart_PayLater_Total;
     private BigDecimal amount_Total;
@@ -92,5 +93,13 @@ public class SummaryModel {
 
     public void setOneCard_Metal(BigDecimal oneCard_Metal) {
         this.oneCard_Metal = oneCard_Metal;
+    }
+
+    public BigDecimal getSwiggy_HDFC() {
+        return swiggy_HDFC;
+    }
+
+    public void setSwiggy_HDFC(BigDecimal swiggy_HDFC) {
+        this.swiggy_HDFC = swiggy_HDFC;
     }
 }

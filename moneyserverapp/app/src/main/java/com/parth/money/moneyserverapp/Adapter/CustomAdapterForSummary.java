@@ -30,6 +30,7 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         TextView t4;
         TextView t8;
         TextView t9;
+        TextView t10;
         TextView t5;
         TextView t6;
         TextView t7;
@@ -64,6 +65,7 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
             viewHolder.t4 = (TextView) convertView.findViewById(R.id.SummaryTextView4);
             viewHolder.t8 = (TextView) convertView.findViewById(R.id.SummaryTextView8);
             viewHolder.t9 = (TextView) convertView.findViewById(R.id.SummaryTextView9);
+            viewHolder.t10 = (TextView) convertView.findViewById(R.id.SummaryTextView10);
             viewHolder.t5 = (TextView) convertView.findViewById(R.id.SummaryTextView5);
             viewHolder.t6 = (TextView) convertView.findViewById(R.id.SummaryTextView6);
             viewHolder.t7 = (TextView) convertView.findViewById(R.id.SummaryTextView7);
@@ -82,6 +84,7 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         BigDecimal AmazonPay_icici_Total = summaryModel.getAmazonPay_icici_Total();
         BigDecimal HSBC_Visa_Platinum_Total = summaryModel.getHsbc_Visa_Platinum();
         BigDecimal OneCard_Metal_Total = summaryModel.getOneCard_Metal();
+        BigDecimal Swiggy_HDFC_Total = summaryModel.getSwiggy_HDFC();
         BigDecimal Amazon_PayLater_Total = summaryModel.getAmazon_PayLater_Total();
         BigDecimal Flipkart_PayLater_Total = summaryModel.getFlipkart_PayLater_Total();
         BigDecimal Amount_Total = summaryModel.getAmount_Total();
@@ -95,6 +98,7 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         viewHolder.t7.setText("Amount_Total : ₹"+Amount_Total.toString());
         viewHolder.t8.setText("HSBC PLATINUM Visa : ₹"+HSBC_Visa_Platinum_Total.toString());
         viewHolder.t9.setText("ONECard METAL Visa : ₹"+OneCard_Metal_Total.toString());
+        viewHolder.t10.setText("Swiggy HDFC Visa : ₹"+Swiggy_HDFC_Total.toString());
 
 
         return convertView;

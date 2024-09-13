@@ -59,6 +59,7 @@ public class SummaryUtility {
         BigDecimal amznicici = new BigDecimal(0);
         BigDecimal hsbcvisaplat = new BigDecimal(0);
         BigDecimal onecardmetal = new BigDecimal(0);
+        BigDecimal swiggyhdfc = new BigDecimal(0);
         BigDecimal amznpl = new BigDecimal(0);
         BigDecimal flpkrtpl = new BigDecimal(0);
         BigDecimal totalAmt = new BigDecimal(0);
@@ -96,6 +97,9 @@ public class SummaryUtility {
             if(txn.getTxnCCused().startsWith("ONECard METAL")){
                 onecardmetal = onecardmetal.add(txn.getTxnAmount());
             }
+            if(txn.getTxnCCused().startsWith("Swiggy HDFC")){
+                swiggyhdfc = swiggyhdfc.add(txn.getTxnAmount());
+            }
         }
 
         totalAmt = totalAmt.add(scu);
@@ -105,6 +109,7 @@ public class SummaryUtility {
         totalAmt = totalAmt.add(flpkrtpl);
         totalAmt = totalAmt.add(hsbcvisaplat);
         totalAmt = totalAmt.add(onecardmetal);
+        totalAmt = totalAmt.add(swiggyhdfc);
 
         returnModel.setStandard_Chartered_Ultimate_Total(scu);
         returnModel.setHDFC_Regalia_Gold_Total(hdfcrg);
@@ -113,6 +118,7 @@ public class SummaryUtility {
         returnModel.setFlipkart_PayLater_Total(flpkrtpl);
         returnModel.setHSBC_Visa_Platinum(hsbcvisaplat);
         returnModel.setOneCard_Metal(onecardmetal);
+        returnModel.setSwiggy_HDFC(swiggyhdfc);
         returnModel.setAmount_Total(totalAmt);
 
         return returnModel;

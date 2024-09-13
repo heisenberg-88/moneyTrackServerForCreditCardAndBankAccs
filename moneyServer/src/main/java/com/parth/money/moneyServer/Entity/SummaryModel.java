@@ -10,6 +10,7 @@ public class SummaryModel {
     private BigDecimal AmazonPay_icici_Total;
     private BigDecimal HSBC_Visa_Platinum;
     private BigDecimal OneCard_Metal;
+    private BigDecimal Swiggy_HDFC;
     private BigDecimal Amazon_PayLater_Total;
     private BigDecimal Flipkart_PayLater_Total;
     private BigDecimal Amount_Total;
@@ -92,5 +93,13 @@ public class SummaryModel {
 
     public void setOneCard_Metal(BigDecimal oneCard_Metal) {
         OneCard_Metal = oneCard_Metal;
+    }
+
+    public BigDecimal getSwiggy_HDFC() {
+        return Swiggy_HDFC;
+    }
+
+    public void setSwiggy_HDFC(BigDecimal swiggy_HDFC) {
+        Swiggy_HDFC = swiggy_HDFC;
     }
 }
