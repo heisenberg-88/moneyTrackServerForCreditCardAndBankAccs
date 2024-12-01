@@ -31,6 +31,8 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         TextView t8;
         TextView t9;
         TextView t10;
+        TextView t11;
+        TextView t12;
         TextView t5;
         TextView t6;
         TextView t7;
@@ -66,6 +68,8 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
             viewHolder.t8 = (TextView) convertView.findViewById(R.id.SummaryTextView8);
             viewHolder.t9 = (TextView) convertView.findViewById(R.id.SummaryTextView9);
             viewHolder.t10 = (TextView) convertView.findViewById(R.id.SummaryTextView10);
+            viewHolder.t11 = (TextView) convertView.findViewById(R.id.SummaryTextView11);
+            viewHolder.t12 = (TextView) convertView.findViewById(R.id.SummaryTextView12);
             viewHolder.t5 = (TextView) convertView.findViewById(R.id.SummaryTextView5);
             viewHolder.t6 = (TextView) convertView.findViewById(R.id.SummaryTextView6);
             viewHolder.t7 = (TextView) convertView.findViewById(R.id.SummaryTextView7);
@@ -85,6 +89,8 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         BigDecimal HSBC_Visa_Platinum_Total = summaryModel.getHsbc_Visa_Platinum();
         BigDecimal OneCard_Metal_Total = summaryModel.getOneCard_Metal();
         BigDecimal Swiggy_HDFC_Total = summaryModel.getSwiggy_HDFC();
+        BigDecimal IRCTC_SBI_Total = summaryModel.getIrctc_SBI();
+        BigDecimal YesBank_ELITEPLUS_Total = summaryModel.getYesBank_ElitePlus();
         BigDecimal Amazon_PayLater_Total = summaryModel.getAmazon_PayLater_Total();
         BigDecimal Flipkart_PayLater_Total = summaryModel.getFlipkart_PayLater_Total();
         BigDecimal Amount_Total = summaryModel.getAmount_Total();
@@ -99,6 +105,8 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         viewHolder.t8.setText("HSBC PLATINUM Visa : ₹"+HSBC_Visa_Platinum_Total.toString());
         viewHolder.t9.setText("ONECard METAL Visa : ₹"+OneCard_Metal_Total.toString());
         viewHolder.t10.setText("Swiggy HDFC Visa : ₹"+Swiggy_HDFC_Total.toString());
+        viewHolder.t11.setText("IRCTC SBI Visa : ₹"+IRCTC_SBI_Total.toString());
+        viewHolder.t12.setText("YesBank Elite+ MasterCard-WORLD : ₹"+YesBank_ELITEPLUS_Total.toString());
 
 
         return convertView;

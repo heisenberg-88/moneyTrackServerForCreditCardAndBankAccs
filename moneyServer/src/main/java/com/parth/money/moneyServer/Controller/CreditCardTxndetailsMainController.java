@@ -118,6 +118,12 @@ public class CreditCardTxndetailsMainController {
         if(entity.getTxnCCused().startsWith("Swiggy")){
             typeOfCard = "SWIGGYHDFC";
         }
+        if(entity.getTxnCCused().startsWith("IRCTC")){
+            typeOfCard = "IRCTCSBI";
+        }
+        if(entity.getTxnCCused().startsWith("YesBank")){
+            typeOfCard = "YESELITEPLUS";
+        }
         String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
         String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
 
@@ -194,6 +200,12 @@ public class CreditCardTxndetailsMainController {
         }
         if(entity.getTxnCCused().startsWith("Swiggy")){
             typeOfCard = "SWIGGYHDFC";
+        }
+        if(entity.getTxnCCused().startsWith("IRCTC")){
+            typeOfCard = "IRCTCSBI";
+        }
+        if(entity.getTxnCCused().startsWith("YesBank")){
+            typeOfCard = "YESELITEPLUS";
         }
         String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
         String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
@@ -278,6 +290,12 @@ public class CreditCardTxndetailsMainController {
         if(responseFromID.getTxnCCused().startsWith("Swiggy")){
             typeOfCard = "SWIGGYHDFC";
         }
+        if(responseFromID.getTxnCCused().startsWith("IRCTC")){
+            typeOfCard = "IRCTCSBI";
+        }
+        if(responseFromID.getTxnCCused().startsWith("YesBank")){
+            typeOfCard = "YESELITEPLUS";
+        }
         String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
         String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();
         if(responseFromID.getTxnBillingYearINTEGER()!=Integer.parseInt(currDBlastusedYear)){
@@ -314,6 +332,12 @@ public class CreditCardTxndetailsMainController {
         }
         if(responseFromID.getTxnCCused().startsWith("Swiggy")){
             typeOfCard = "SWIGGYHDFC";
+        }
+        if(responseFromID.getTxnCCused().startsWith("IRCTC")){
+            typeOfCard = "IRCTCSBI";
+        }
+        if(responseFromID.getTxnCCused().startsWith("YesBank")){
+            typeOfCard = "YESELITEPLUS";
         }
         String currDBlastusedYear = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedyear").getValue();
         String currDBlastusedMonth = moneyServerPropertiesDataRepository.findById(typeOfCard+"lastUsedmonth").getValue();

@@ -11,6 +11,8 @@ public class SummaryModel {
     private BigDecimal HSBC_Visa_Platinum;
     private BigDecimal OneCard_Metal;
     private BigDecimal Swiggy_HDFC;
+    private BigDecimal Irctc_SBI;
+    private BigDecimal YesBank_ElitePlus;
     private BigDecimal Amazon_PayLater_Total;
     private BigDecimal Flipkart_PayLater_Total;
     private BigDecimal Amount_Total;
@@ -101,5 +103,21 @@ public class SummaryModel {
 
     public void setSwiggy_HDFC(BigDecimal swiggy_HDFC) {
         Swiggy_HDFC = swiggy_HDFC;
+    }
+
+    public BigDecimal getIrctc_SBI() {
+        return Irctc_SBI;
+    }
+
+    public void setIrctc_SBI(BigDecimal irctc_SBI) {
+        Irctc_SBI = irctc_SBI;
+    }
+
+    public BigDecimal getYesBank_ElitePlus() {
+        return YesBank_ElitePlus;
+    }
+
+    public void setYesBank_ElitePlus(BigDecimal yesBank_ElitePlus) {
+        YesBank_ElitePlus = yesBank_ElitePlus;
     }
 }

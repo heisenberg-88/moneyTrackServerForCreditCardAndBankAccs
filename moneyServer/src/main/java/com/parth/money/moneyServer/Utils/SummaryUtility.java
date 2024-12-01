@@ -60,6 +60,8 @@ public class SummaryUtility {
         BigDecimal hsbcvisaplat = new BigDecimal(0);
         BigDecimal onecardmetal = new BigDecimal(0);
         BigDecimal swiggyhdfc = new BigDecimal(0);
+        BigDecimal irctcSbi = new BigDecimal(0);
+        BigDecimal yesElitePlus = new BigDecimal(0);
         BigDecimal amznpl = new BigDecimal(0);
         BigDecimal flpkrtpl = new BigDecimal(0);
         BigDecimal totalAmt = new BigDecimal(0);
@@ -100,6 +102,12 @@ public class SummaryUtility {
             if(txn.getTxnCCused().startsWith("Swiggy HDFC")){
                 swiggyhdfc = swiggyhdfc.add(txn.getTxnAmount());
             }
+            if(txn.getTxnCCused().startsWith("IRCTC SBI")){
+                irctcSbi = irctcSbi.add(txn.getTxnAmount());
+            }
+            if(txn.getTxnCCused().startsWith("YesBank Elite+")){
+                yesElitePlus = yesElitePlus.add(txn.getTxnAmount());
+            }
         }
 
         totalAmt = totalAmt.add(scu);
@@ -110,6 +118,8 @@ public class SummaryUtility {
         totalAmt = totalAmt.add(hsbcvisaplat);
         totalAmt = totalAmt.add(onecardmetal);
         totalAmt = totalAmt.add(swiggyhdfc);
+        totalAmt = totalAmt.add(irctcSbi);
+        totalAmt = totalAmt.add(yesElitePlus);
 
         returnModel.setStandard_Chartered_Ultimate_Total(scu);
         returnModel.setHDFC_Regalia_Gold_Total(hdfcrg);
@@ -119,6 +129,8 @@ public class SummaryUtility {
         returnModel.setHSBC_Visa_Platinum(hsbcvisaplat);
         returnModel.setOneCard_Metal(onecardmetal);
         returnModel.setSwiggy_HDFC(swiggyhdfc);
+        returnModel.setIrctc_SBI(irctcSbi);
+        returnModel.setYesBank_ElitePlus(yesElitePlus);
         returnModel.setAmount_Total(totalAmt);
 
         return returnModel;
