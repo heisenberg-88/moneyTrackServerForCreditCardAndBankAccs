@@ -13,6 +13,7 @@ public class SummaryModel {
     private BigDecimal Swiggy_HDFC;
     private BigDecimal Irctc_SBI;
     private BigDecimal YesBank_ElitePlus;
+    private BigDecimal RBL_WorldSafari;
     private BigDecimal Amazon_PayLater_Total;
     private BigDecimal Flipkart_PayLater_Total;
     private BigDecimal Amount_Total;
@@ -119,5 +120,13 @@ public class SummaryModel {
 
     public void setYesBank_ElitePlus(BigDecimal yesBank_ElitePlus) {
         YesBank_ElitePlus = yesBank_ElitePlus;
+    }
+
+    public BigDecimal getRBL_WorldSafari() {
+        return RBL_WorldSafari;
+    }
+
+    public void setRBL_WorldSafari(BigDecimal RBL_WorldSafari) {
+        this.RBL_WorldSafari = RBL_WorldSafari;
     }
 }

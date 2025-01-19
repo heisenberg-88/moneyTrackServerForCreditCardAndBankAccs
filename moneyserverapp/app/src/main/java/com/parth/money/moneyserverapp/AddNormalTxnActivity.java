@@ -97,7 +97,7 @@ public class AddNormalTxnActivity extends AppCompatActivity {
         List<String> ccNames = Arrays.asList(
                 "AmazonPay ICICI Visa", "HDFC Regalia Gold MasterCard-WORLD",
                 "Standard Chartered Ultimate MasterCard-WORLD", "HSBC PLATINUM Visa",
-                "ONECard METAL Visa", "Swiggy HDFC Visa", "IRCTC SBI Visa", "YesBank Elite+ MasterCard-WORLD"
+                "ONECard METAL Visa", "Swiggy HDFC Visa", "IRCTC SBI Visa", "YesBank Elite+ MasterCard-WORLD", "RBL WorldSafari MasterCard-WORLD"
         );
         ArrayAdapter<String> ccNamesAdapter = new ArrayAdapter<>(this, R.layout.my_spinner, ccNames);
         CCspinner.setAdapter(ccNamesAdapter);

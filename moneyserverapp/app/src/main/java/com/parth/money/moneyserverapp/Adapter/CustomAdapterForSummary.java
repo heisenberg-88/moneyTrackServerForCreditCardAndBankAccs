@@ -33,6 +33,7 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         TextView t10;
         TextView t11;
         TextView t12;
+        TextView t13;
         TextView t5;
         TextView t6;
         TextView t7;
@@ -70,6 +71,7 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
             viewHolder.t10 = (TextView) convertView.findViewById(R.id.SummaryTextView10);
             viewHolder.t11 = (TextView) convertView.findViewById(R.id.SummaryTextView11);
             viewHolder.t12 = (TextView) convertView.findViewById(R.id.SummaryTextView12);
+            viewHolder.t13 = (TextView) convertView.findViewById(R.id.SummaryTextView13);
             viewHolder.t5 = (TextView) convertView.findViewById(R.id.SummaryTextView5);
             viewHolder.t6 = (TextView) convertView.findViewById(R.id.SummaryTextView6);
             viewHolder.t7 = (TextView) convertView.findViewById(R.id.SummaryTextView7);
@@ -91,6 +93,7 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         BigDecimal Swiggy_HDFC_Total = summaryModel.getSwiggy_HDFC();
         BigDecimal IRCTC_SBI_Total = summaryModel.getIrctc_SBI();
         BigDecimal YesBank_ELITEPLUS_Total = summaryModel.getYesBank_ElitePlus();
+        BigDecimal RBL_WorldSafari_Total = summaryModel.getRbl_WorldSafari();
         BigDecimal Amazon_PayLater_Total = summaryModel.getAmazon_PayLater_Total();
         BigDecimal Flipkart_PayLater_Total = summaryModel.getFlipkart_PayLater_Total();
         BigDecimal Amount_Total = summaryModel.getAmount_Total();
@@ -107,6 +110,7 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         viewHolder.t10.setText("Swiggy HDFC Visa : ₹"+Swiggy_HDFC_Total.toString());
         viewHolder.t11.setText("IRCTC SBI Visa : ₹"+IRCTC_SBI_Total.toString());
         viewHolder.t12.setText("YesBank Elite+ MasterCard-WORLD : ₹"+YesBank_ELITEPLUS_Total.toString());
+        viewHolder.t13.setText("RBL WorldSafari MasterCard-WORLD : ₹"+RBL_WorldSafari_Total.toString());
 
 
         return convertView;

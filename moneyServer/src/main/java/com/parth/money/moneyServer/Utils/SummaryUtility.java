@@ -62,6 +62,7 @@ public class SummaryUtility {
         BigDecimal swiggyhdfc = new BigDecimal(0);
         BigDecimal irctcSbi = new BigDecimal(0);
         BigDecimal yesElitePlus = new BigDecimal(0);
+        BigDecimal rblWorldSafari = new BigDecimal(0);
         BigDecimal amznpl = new BigDecimal(0);
         BigDecimal flpkrtpl = new BigDecimal(0);
         BigDecimal totalAmt = new BigDecimal(0);
@@ -108,6 +109,9 @@ public class SummaryUtility {
             if(txn.getTxnCCused().startsWith("YesBank Elite+")){
                 yesElitePlus = yesElitePlus.add(txn.getTxnAmount());
             }
+            if(txn.getTxnCCused().startsWith("RBL WorldSafari")){
+                rblWorldSafari = rblWorldSafari.add(txn.getTxnAmount());
+            }
         }
 
         totalAmt = totalAmt.add(scu);
@@ -120,6 +124,7 @@ public class SummaryUtility {
         totalAmt = totalAmt.add(swiggyhdfc);
         totalAmt = totalAmt.add(irctcSbi);
         totalAmt = totalAmt.add(yesElitePlus);
+        totalAmt = totalAmt.add(rblWorldSafari);
 
         returnModel.setStandard_Chartered_Ultimate_Total(scu);
         returnModel.setHDFC_Regalia_Gold_Total(hdfcrg);
@@ -131,6 +136,7 @@ public class SummaryUtility {
         returnModel.setSwiggy_HDFC(swiggyhdfc);
         returnModel.setIrctc_SBI(irctcSbi);
         returnModel.setYesBank_ElitePlus(yesElitePlus);
+        returnModel.setRBL_WorldSafari(rblWorldSafari);
         returnModel.setAmount_Total(totalAmt);
 
         return returnModel;
