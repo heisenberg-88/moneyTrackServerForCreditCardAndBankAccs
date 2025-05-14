@@ -63,6 +63,8 @@ public class SummaryUtility {
         BigDecimal irctcSbi = new BigDecimal(0);
         BigDecimal yesElitePlus = new BigDecimal(0);
         BigDecimal rblWorldSafari = new BigDecimal(0);
+        BigDecimal marriotthdfc = new BigDecimal(0);
+        BigDecimal rupayhdfc = new BigDecimal(0);
         BigDecimal amznpl = new BigDecimal(0);
         BigDecimal flpkrtpl = new BigDecimal(0);
         BigDecimal totalAmt = new BigDecimal(0);
@@ -112,6 +114,12 @@ public class SummaryUtility {
             if(txn.getTxnCCused().startsWith("RBL WorldSafari")){
                 rblWorldSafari = rblWorldSafari.add(txn.getTxnAmount());
             }
+            if(txn.getTxnCCused().startsWith("Marriott HDFC")){
+                marriotthdfc = marriotthdfc.add(txn.getTxnAmount());
+            }
+            if(txn.getTxnCCused().startsWith("Rupay HDFC")){
+                rupayhdfc = rupayhdfc.add(txn.getTxnAmount());
+            }
         }
 
         totalAmt = totalAmt.add(scu);
@@ -125,6 +133,8 @@ public class SummaryUtility {
         totalAmt = totalAmt.add(irctcSbi);
         totalAmt = totalAmt.add(yesElitePlus);
         totalAmt = totalAmt.add(rblWorldSafari);
+        totalAmt = totalAmt.add(marriotthdfc);
+        totalAmt = totalAmt.add(rupayhdfc);
 
         returnModel.setStandard_Chartered_Ultimate_Total(scu);
         returnModel.setHDFC_Regalia_Gold_Total(hdfcrg);
@@ -137,6 +147,8 @@ public class SummaryUtility {
         returnModel.setIrctc_SBI(irctcSbi);
         returnModel.setYesBank_ElitePlus(yesElitePlus);
         returnModel.setRBL_WorldSafari(rblWorldSafari);
+        returnModel.setMarriott_HDFC(marriotthdfc);
+        returnModel.setRupay_HDFC(rupayhdfc);
         returnModel.setAmount_Total(totalAmt);
 
         return returnModel;

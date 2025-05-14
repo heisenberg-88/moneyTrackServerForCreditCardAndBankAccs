@@ -97,7 +97,8 @@ public class AddNormalTxnActivity extends AppCompatActivity {
         List<String> ccNames = Arrays.asList(
                 "AmazonPay ICICI Visa", "HDFC Regalia Gold MasterCard-WORLD",
                 "Standard Chartered Ultimate MasterCard-WORLD", "HSBC PLATINUM Visa",
-                "ONECard METAL Visa", "Swiggy HDFC Visa", "IRCTC SBI Visa", "YesBank Elite+ MasterCard-WORLD", "RBL WorldSafari MasterCard-WORLD"
+                "ONECard METAL Visa", "Swiggy HDFC Visa", "IRCTC SBI Visa", "YesBank Elite+ MasterCard-WORLD", "RBL WorldSafari MasterCard-WORLD", "Marriott Bonvoy HDFC Diner's Club International",
+                "Rupay HDFC"
         );
         ArrayAdapter<String> ccNamesAdapter = new ArrayAdapter<>(this, R.layout.my_spinner, ccNames);
         CCspinner.setAdapter(ccNamesAdapter);
@@ -205,6 +206,7 @@ public class AddNormalTxnActivity extends AppCompatActivity {
                         CCtxnPOSTER(entityToPost);
                     }else{
                         CCEMItxnPOSTER(entityToPost,noOfEmisINTEGER);
+                        isCheckedEMIflag = false; // BugFix : static isCheckedEMIflag stays true if previous added txn is emi. So marking it false after eni txn is added successfully
                     }
                 }else{
                     txnDetailsField.setError("Valid txn details required");

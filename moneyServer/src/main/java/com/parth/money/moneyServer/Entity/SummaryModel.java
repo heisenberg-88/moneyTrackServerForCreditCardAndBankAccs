@@ -14,6 +14,8 @@ public class SummaryModel {
     private BigDecimal Irctc_SBI;
     private BigDecimal YesBank_ElitePlus;
     private BigDecimal RBL_WorldSafari;
+    private BigDecimal Marriott_HDFC;
+    private BigDecimal Rupay_HDFC;
     private BigDecimal Amazon_PayLater_Total;
     private BigDecimal Flipkart_PayLater_Total;
     private BigDecimal Amount_Total;
@@ -128,5 +130,21 @@ public class SummaryModel {
 
     public void setRBL_WorldSafari(BigDecimal RBL_WorldSafari) {
         this.RBL_WorldSafari = RBL_WorldSafari;
+    }
+
+    public BigDecimal getMarriott_HDFC() {
+        return Marriott_HDFC;
+    }
+
+    public void setMarriott_HDFC(BigDecimal marriott_HDFC) {
+        Marriott_HDFC = marriott_HDFC;
+    }
+
+    public BigDecimal getRupay_HDFC() {
+        return Rupay_HDFC;
+    }
+
+    public void setRupay_HDFC(BigDecimal rupay_HDFC) {
+        Rupay_HDFC = rupay_HDFC;
     }
 }
