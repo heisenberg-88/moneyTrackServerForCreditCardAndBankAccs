@@ -117,8 +117,8 @@ public class CustomAdapterForSummary extends ArrayAdapter<SummaryModel> {
         viewHolder.t11.setText("IRCTC SBI Visa : ₹"+IRCTC_SBI_Total.toString());
         viewHolder.t12.setText("YesBank Elite+ MasterCard-WORLD : ₹"+YesBank_ELITEPLUS_Total.toString());
         viewHolder.t13.setText("RBL WorldSafari MasterCard-WORLD : ₹"+RBL_WorldSafari_Total.toString());
-        viewHolder.t13.setText("Marriott Bonvoy HDFC Diner's Club International : ₹"+Marriott_HDFC_Total.toString());
-        viewHolder.t13.setText("Rupay HDFC : ₹"+Rupay_HDFC_Total.toString());
+        viewHolder.t14.setText("Marriott Bonvoy HDFC Diner's Club International : ₹"+Marriott_HDFC_Total.toString());
+        viewHolder.t15.setText("Rupay HDFC : ₹"+Rupay_HDFC_Total.toString());
 
 
         return convertView;
